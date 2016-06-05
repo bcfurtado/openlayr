@@ -2,7 +2,7 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 
 
-class NewUserSeeAllProductsInHomePage(StaticLiveServerTestCase):
+class HomePageShowTheProducts(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -10,6 +10,10 @@ class NewUserSeeAllProductsInHomePage(StaticLiveServerTestCase):
     def tearDown(self):
         self.browser.quit()
 
-    def test_show_all_products_in_store(self):
+    def test_home_page_shows_products(self):
+        self.browser.get(self.live_server_url)
 
-        self.fail('not implemented')
+        self.assertIn('openlayr', self.browser.title)
+
+        products = self.browser.find_element_by_id('products')
+        self.assertIn(products, 'Macbook Pro 13 - 2013')
