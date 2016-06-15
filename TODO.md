@@ -2,7 +2,7 @@
 
 ## Product in the store
 [X] As an user I want to see the store products in the home page.
-[ ] As an user I want to see all the product characteristics.
+[X] As an user I want to see all the product characteristics.
 [ ] As an user I should be to see the categories in home screen.
 
 ## Orders:
