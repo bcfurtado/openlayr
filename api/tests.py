@@ -8,8 +8,14 @@ class ProductTests(APITestCase):
         """
         Ensure we can retrive the objects in database
         """
-        Product(name='My first product', description='Description of product 1', price=10.99).save()
-        Product(name='My second product', description='Description of product 2', price=119.00).save()
+        Product(name='My first product',
+                description='Description of product 1',
+                price=10.99,
+                category='first category').save()
+        Product(name='My second product',
+                description='Description of product 2',
+                price=119.00,
+                category='second category').save()
 
         response = self.client.get('/api/products/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -17,10 +23,12 @@ class ProductTests(APITestCase):
         self.assertTrue('My first product' in dict(response.data[0])['name'])
         self.assertTrue('Description of product 1' in dict(response.data[0])['description'])
         self.assertTrue('10.99' in dict(response.data[0])['price'])
+        self.assertTrue('first category' in dict(response.data[0])['category'])
 
         self.assertTrue('My second product' in dict(response.data[1])['name'])
         self.assertTrue('Description of product 2' in dict(response.data[1])['description'])
         self.assertTrue('119.00' in dict(response.data[1])['price'])
+        self.assertTrue('second category' in dict(response.data[1])['category'])
 
     def test_get_a_product(self):
         """
