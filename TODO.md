@@ -5,6 +5,7 @@
 [X] As an user I want to see all the product characteristics.
 [ ] As an user I want to see the product category in product detail page
 [ ] As an user I should be to see the categories in home screen.
+[ ] As an user I want to see in the category page all their products
 
 ## Orders:
 [ ] As an user I want to order a product.
