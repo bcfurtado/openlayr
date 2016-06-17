@@ -11,11 +11,11 @@ class ProductTests(APITestCase):
         Product(name='My first product',
                 description='Description of product 1',
                 price=10.99,
-                category='first category').save()
+                category_name='first category').save()
         Product(name='My second product',
                 description='Description of product 2',
                 price=119.00,
-                category='second category').save()
+                category_name='second category').save()
 
         response = self.client.get('/api/products/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
