@@ -10,7 +10,7 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'description', 'price', 'category')
 
     def get_category(self, obj):
-        return obj.category_name
+        return obj.category.name
 
 class CategorySerializer(serializers.ModelSerializer):
 
