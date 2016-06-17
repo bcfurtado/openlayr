@@ -1,6 +1,6 @@
 from rest_framework import status
 from rest_framework.test import APITestCase
-from .models import Product
+from .models import Product, Category
 
 class ProductTests(APITestCase):
 
@@ -42,3 +42,24 @@ class ProductTests(APITestCase):
         self.assertTrue('My first product' in dict(response.data)['name'])
         self.assertTrue('Description of product 1' in dict(response.data)['description'])
         self.assertTrue('10.99' in dict(response.data)['price'])
+
+
+class CategoryTest(APITestCase):
+
+    def test_get_all_the_categories(self):
+        """
+        Ensure we can retrive all the categories
+        """
+        Category(name='first category', description='first category description').save()
+        Category(name='second category', description='second category description').save()
+        Category(name='third category', description='third category description').save()
+
+        response = self.client.get('/api/categories/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        self.assertEqual('first category', dict(response.data[0])['name'])
+        self.assertEqual('first category description', dict(response.data[0])['description'])
+        self.assertEqual('second category', dict(response.data[1])['name'])
+        self.assertEqual('second category description', dict(response.data[1])['description'])
+        self.assertEqual('third category', dict(response.data[2])['name'])
+        self.assertEqual('third category description', dict(response.data[2])['description'])
