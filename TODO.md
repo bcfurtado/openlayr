@@ -27,3 +27,6 @@
 [ ] Add product to cart.
 [ ] Seeing products in shopping cart.
 [ ] Finishing order.
+
+## Others
+[ ] Configure Travis/Snap-CI or other CI Tool
