@@ -4,19 +4,28 @@ from .models import Product, Category
 
 class ProductTests(APITestCase):
 
+    def setUp(self):
+        first_category = Category(name='first category', description='first category description')
+        first_category.save()
+        first_product = Product(name='My first product',
+                description='Description of product 1',
+                price=10.99,
+                category=first_category)
+        first_product.save()
+
+        second_category = Category(name='second category', description='second category description')
+        second_category.save()
+        second_product = Product(name='My second product',
+                description='Description of product 2',
+                price=119.00,
+                category=second_category)
+        second_product.save()
+
+
     def test_get_all_products(self):
         """
         Ensure we can retrive the objects in database
         """
-        Product(name='My first product',
-                description='Description of product 1',
-                price=10.99,
-                category_name='first category').save()
-        Product(name='My second product',
-                description='Description of product 2',
-                price=119.00,
-                category_name='second category').save()
-
         response = self.client.get('/api/products/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
@@ -34,14 +43,14 @@ class ProductTests(APITestCase):
         """
         Ensure we can retrive a specificy object in database using the id
         """
-        Product(name='My first product', description='Description of product 1', price=10.99).save()
-
         response = self.client.get('/api/products/1/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
         self.assertTrue('My first product' in dict(response.data)['name'])
         self.assertTrue('Description of product 1' in dict(response.data)['description'])
         self.assertTrue('10.99' in dict(response.data)['price'])
+        self.assertTrue('first category' in dict(response.data)['category'])
+
 
 
 class CategoryTest(APITestCase):
