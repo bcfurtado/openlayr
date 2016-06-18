@@ -23,3 +23,7 @@ class ProductDetail(RetrieveAPIView):
 class CategoryList(ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+class CategoryDetail(RetrieveAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer

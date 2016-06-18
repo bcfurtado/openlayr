@@ -72,14 +72,15 @@ class ProductTests(APITestCase):
 
 class CategoryTest(APITestCase):
 
-    def test_get_all_the_categories(self):
-        """
-        Ensure we can retrive all the categories
-        """
+    def setUp(self):
         Category(name='first category', description='first category description').save()
         Category(name='second category', description='second category description').save()
         Category(name='third category', description='third category description').save()
 
+    def test_get_all_the_categories(self):
+        """
+        Ensure we can retrive all the categories
+        """
         response = self.client.get('/api/categories/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
@@ -89,3 +90,12 @@ class CategoryTest(APITestCase):
         self.assertEqual('second category description', dict(response.data[1])['description'])
         self.assertEqual('third category', dict(response.data[2])['name'])
         self.assertEqual('third category description', dict(response.data[2])['description'])
+
+    def test_get_a_specificy_category(self):
+        """Ensure we can retrive a specificy category"""
+        response = self.client.get('/api/categories/1/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        self.assertEqual(1, dict(response.data)['id'])
+        self.assertEqual('first category', dict(response.data)['name'])
+        self.assertEqual('first category description', dict(response.data)['description'])
