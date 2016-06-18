@@ -21,6 +21,12 @@ class ProductTests(APITestCase):
                 category=second_category)
         second_product.save()
 
+        third_product = Product(name='My third product',
+                description='Description of product 3',
+                price=55.99,
+                category=first_category)
+        third_product.save()
+
 
     def test_get_all_products(self):
         """
@@ -51,6 +57,17 @@ class ProductTests(APITestCase):
         self.assertTrue('10.99' in dict(response.data)['price'])
         self.assertTrue('first category' in dict(response.data)['category'])
 
+    def test_get_a_product_filter_by_category(self):
+        """
+        Ensure we can retrive only product from a specific category
+        """
+        category_id = 1
+        response = self.client.get('/api/products/?category_id=' + str(category_id))
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(2, len(response.data))
+        self.assertTrue('My first product' in dict(response.data[0])['name'])
+        self.assertTrue('My third product' in dict(response.data[1])['name'])
 
 
 class CategoryTest(APITestCase):
