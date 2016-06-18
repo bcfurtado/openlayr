@@ -29,4 +29,4 @@
 [ ] Finishing order.
 
 ## Others
-[ ] Configure Travis/Snap-CI or other CI Tool
+[X] Configure Travis/Snap-CI or other CI Tool

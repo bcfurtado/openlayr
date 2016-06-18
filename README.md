@@ -1,5 +1,8 @@
 # openlayr
 
+[![Build Status](https://travis-ci.org/bcfurtado/openlayr.svg?branch=master)](https://travis-ci.org/bcfurtado/openlayr)
+
+
 ## installation
 
 ``` sh
