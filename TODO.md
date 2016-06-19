@@ -23,9 +23,9 @@
 - [ ] Login an user dashboard.
 
 ## Shopping cart:
-- [ ] Add "Add to cart" button to product page.
-- [ ] Add product to cart.
-- [ ] See products in shopping cart.
+- [X] Add "Add to cart" button to product page.
+- [X] Add product to cart.
+- [X] See products in shopping cart.
 - [ ] Finish order.
 
 ## Others
