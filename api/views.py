@@ -1,6 +1,6 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
-from .models import Product, Category
-from .serializers import ProductSerializer, CategorySerializer
+from .models import Product, Category, Order
+from .serializers import ProductSerializer, CategorySerializer, OrderSerializer
 
 
 class ProductList(ListCreateAPIView):
@@ -27,3 +27,7 @@ class CategoryList(ListCreateAPIView):
 class CategoryDetail(RetrieveAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+class OrderList(ListCreateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer

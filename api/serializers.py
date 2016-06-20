@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Product, Category
+from api.models import Product, Category, Order
 
 class ProductSerializer(serializers.ModelSerializer):
     category = serializers.SerializerMethodField()
@@ -17,3 +17,9 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ('id', 'name', 'description')
+
+class OrderSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Order
+        fields = ('id', 'name', 'email', 'address', 'products', 'created_at')

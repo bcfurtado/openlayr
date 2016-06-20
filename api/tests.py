@@ -99,3 +99,35 @@ class CategoryTest(APITestCase):
         self.assertEqual(1, dict(response.data)['id'])
         self.assertEqual('first category', dict(response.data)['name'])
         self.assertEqual('first category description', dict(response.data)['description'])
+
+class OrderTest(APITestCase):
+
+    def setUp(self):
+        first_category = Category(name='first category', description='first category description')
+        first_category.save()
+        first_product = Product(name='My first product',
+                description='Description of product 1',
+                price=10.99,
+                category=first_category)
+        first_product.save()
+        second_product = Product(name='My second product',
+                description='Description of product 2',
+                price=119.00,
+                category=first_category)
+        second_product.save()
+
+
+    def test_create_a_new_order(self):
+        response = self.client.post('/api/orders/', {
+            'name': 'Jonh Doe',
+            'email': 'john@doe.com',
+            'address': 'Wall Street',
+            'products': [1,2],
+        })
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        self.assertEqual('Jonh Doe', dict(response.data)['name'])
+        self.assertEqual('john@doe.com', dict(response.data)['email'])
+        self.assertEqual('Wall Street', dict(response.data)['address'])
+        self.assertIsNotNone(dict(response.data)['created_at'])
+        self.assertEqual([1,2], dict(response.data)['products'])
