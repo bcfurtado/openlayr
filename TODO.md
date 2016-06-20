@@ -8,7 +8,7 @@
 - [X] As an user I want to see in the category page all their products.
 
 ## Orders:
-- [ ] As an user I want to order a product.
+- [X] As an user I want to order a product.
 - [ ] As an user I should receive as email when I complete an order.
 
 ## Roles
@@ -26,7 +26,7 @@
 - [X] Add "Add to cart" button to product page.
 - [X] Add product to cart.
 - [X] See products in shopping cart.
-- [ ] Finish order.
+- [X] Finish order.
 
 ## Others
 - [X] Configure Travis/Snap-CI or other CI Tool
