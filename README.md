@@ -12,6 +12,11 @@ mkvirtualenv $(cat .virtual-environment) -p $(which python3)
 pip install -r requirements.txt
 ```
 
+## configuration
+```sh
+python manage.py createsuperuser
+```
+
 ## running
 
 ``` sh
