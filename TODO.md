@@ -12,15 +12,17 @@
 - [ ] As an user I should receive as email when I complete an order.
 
 ## Roles
-- [ ] As an admin I want to see a list of products.
-- [ ] As an admin I want create a new product in the store.
-- [ ] As an admin, I want to see a list of orders page.
+- [X] As an admin, I want management products
+- [X] As an admin, I want management orders
+- [X] As an admin, I want management categories
 
 ## Payment
 - [ ] As an admin, I can confirm OR reject an order.
 
 ## User dashboard:
-- [ ] Login an user dashboard.
+- [ ] As an user I should not be able to see the browsable rest api page
+- [ ] As an admin I should be able to see the browsable rest api page
+- [ ] As an user I want to see all my previous orders
 
 ## Shopping cart:
 - [X] Add "Add to cart" button to product page.
