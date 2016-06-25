@@ -12,4 +12,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'address', 'created_at', )
+    list_display = ('name', 'email', 'address', 'created_at', 'status', )
+    list_filter = ['status', ]

@@ -129,5 +129,6 @@ class OrderTest(APITestCase):
         self.assertEqual('Jonh Doe', dict(response.data)['name'])
         self.assertEqual('john@doe.com', dict(response.data)['email'])
         self.assertEqual('Wall Street', dict(response.data)['address'])
+        self.assertEqual('Pending', dict(response.data)['status'])
         self.assertIsNotNone(dict(response.data)['created_at'])
         self.assertEqual([1,2], dict(response.data)['products'])

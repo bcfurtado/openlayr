@@ -19,7 +19,8 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'description')
 
 class OrderSerializer(serializers.ModelSerializer):
+    status = serializers.CharField(source='get_status_display', required=False)
 
     class Meta:
         model = Order
-        fields = ('id', 'name', 'email', 'address', 'products', 'created_at')
+        fields = ('id', 'name', 'email', 'address', 'products', 'status', 'created_at')
