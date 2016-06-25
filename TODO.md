@@ -17,7 +17,7 @@
 - [X] As an admin, I want management categories
 
 ## Payment
-- [ ] As an admin, I can confirm OR reject an order.
+- [X] As an admin, I can confirm OR reject an order.
 
 ## User dashboard:
 - [ ] As an user I should not be able to see the browsable rest api page
