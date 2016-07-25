@@ -19,9 +19,12 @@
 ## Payment
 - [X] As an admin, I can confirm OR reject an order.
 
+## Permissions Endpoint
+- [ ] As a buyer I should have read only access to `Product` EndPoint
+- [ ] As a buyer I should have read only access to `Category` EndPoint
+- [ ] As a buyer I should have access create permission to `Order` EndPoint
+
 ## User dashboard:
-- [ ] As an user I should not be able to see the browsable rest api page
-- [ ] As an admin I should be able to see the browsable rest api page
 - [ ] As an user I want to see all my previous orders
 
 ## Shopping cart:
