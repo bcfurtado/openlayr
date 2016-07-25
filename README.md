@@ -23,3 +23,9 @@ python manage.py createsuperuser
 python manage.py migrate
 python manage.py runserver
 ```
+
+## testing
+
+``` sh
+python manage.py test
+```
