@@ -22,7 +22,8 @@
 ## Permissions Endpoint
 - [ ] As a buyer I should have read only access to `Product` EndPoint
 - [ ] As a buyer I should have read only access to `Category` EndPoint
-- [ ] As a buyer I should have access create permission to `Order` EndPoint
+- [ ] As a buyer I should have create permission to `Order` EndPoint
+- [ ] As a buyer I should have access only to my orders on `Order` EndPoint
 
 ## User dashboard:
 - [ ] As an user I want to see all my previous orders
