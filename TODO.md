@@ -35,3 +35,6 @@
 
 ## Others
 - [X] Configure Travis/Snap-CI or other CI Tool
+
+## Home Page
+- [ ] As an user I want to search for products
